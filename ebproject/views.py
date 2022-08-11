@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+from .forms import InputForm
 
 # Create your views here.
 
@@ -34,7 +35,7 @@ def properties(request, value):
 
     data = req.json()
 
-    # create a dic with the prop imgs, if less than 3, repeat imgs until 3, if none, add generic images
+    # create a dictionary with the property images, if less than 3, repeat until 3, if none, add generic images
     images = {}
     if len(data["property_images"]) > 0:
         for count, image in enumerate(data["property_images"]):
@@ -47,6 +48,6 @@ def properties(request, value):
         for count in range(3):
             images[count] = "http://wallpaperswide.com/download/sky_hd-wallpaper-1920x1080.jpg"
 
-    context = {'data':data,'images':images}
+    context = {'data':data,'images':images, 'form':InputForm()}
 
     return render(request, 'ebproject/property.html', context)

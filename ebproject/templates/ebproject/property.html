@@ -57,15 +57,17 @@
             </div>
         </div>
 
-        <!-- {% for key in data.property_images %}
-            <img src="{{ key.url }}"/>
-        {% endfor %} -->
-
         <p>{{ data.public_id }}</p>
         <p>{{ data.title }}</p>
         <p>{{ data.description }}</p>
         <p>{{ data.property_type }}</p>
         <p>{{ data.location.name }}</p>
+
+        <form action = "" method = "post">
+          {% csrf_token %}
+          {{ form.as_ul }}
+          <input type="submit" value=Submit>
+        </form>        
         
         <script src="" async defer></script>
     </body>
