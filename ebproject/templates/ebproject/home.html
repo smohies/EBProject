@@ -24,7 +24,7 @@
     
                 <li class="">
                     <div class="">
-                        <a href="/properties/{{ prop.property_id }}">
+                        <a href="{% url 'property' value=prop.public_id %}">
                             <img src="{{ prop.title_image_thumb }}"/>
                             {{prop.title}}
                         </a>
