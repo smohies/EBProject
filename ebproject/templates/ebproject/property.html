@@ -17,13 +17,16 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1>Property</h1>
+        <h1>Properties / {{ data.title }}</h1>
 
         {% for key in data.property_images %}
             <img src="{{ key.url }}"/>
         {% endfor %}
-        
-        <p>{{ data }}</p>
+        <p>{{ data.public_id }}</p>
+        <p>{{ data.title }}</p>
+        <p>{{ data.description }}</p>
+        <p>{{ data.property_type }}</p>
+        <p>{{ data.location.name }}</p>
         
         <script src="" async defer></script>
     </body>
