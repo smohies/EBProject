@@ -19,3 +19,16 @@ def home(request):
     context = {'content' : content}
 
     return render(request, 'ebproject/home.html', context)
+
+def properties(request):
+    prop_id = "EB-C0156"
+    url = f"https://api.stagingeb.com/v1/properties/{prop_id}"
+    usr = "X-Authorization"
+    key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
+    headers = {usr: key}
+    req = requests.get(url, headers=headers)
+    data = req.json()
+
+    context = {'data' : data}
+
+    return render(request, 'ebproject/property.html', context)

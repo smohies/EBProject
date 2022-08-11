@@ -1,33 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyBroker API APP</title>
-</head>
-<body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EasyBroker API APP Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div>
+            <h1>Properties</h1>
+            <ul>
+            {% for prop in content %}
     
-    <div>
-        <h1>Properties</h1>
-        <ul>
-        {% for property in content %}
-
-            <li class="">
-                <div class="">
-                    <a href="/properties/{{ property.property_id }}">
-                        <img src="{{ property.title_image_thumb }}"/>
-                        {{property.title}}
-                    </a>
-                </div>
-                <div class="">{{property.public_id}}</div>
-                <div class="">{{property.location}}</div>
-                <div class="">{{property.property_type}}</div>
-            </li>
-
-        {% endfor %}
-        </ul>
-    </div>
-
-</body>
+                <li class="">
+                    <div class="">
+                        <a href="/properties/{{ prop.property_id }}">
+                            <img src="{{ prop.title_image_thumb }}"/>
+                            {{prop.title}}
+                        </a>
+                    </div>
+                    <div class="">{{prop.public_id}}</div>
+                    <div class="">{{prop.location}}</div>
+                    <div class="">{{prop.property_type}}</div>
+                </li>
+    
+            {% endfor %}
+            </ul>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
 </html>
