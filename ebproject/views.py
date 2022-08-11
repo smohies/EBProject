@@ -12,6 +12,10 @@ def home(request):
     req = requests.get(url, headers={usr: key})
     data = req.json()
 
-    context = {'data' : data}
+    pagination = data['pagination']
+
+    content = data['content']
+
+    context = {'content' : content}
 
     return render(request, 'ebproject/home.html', context)

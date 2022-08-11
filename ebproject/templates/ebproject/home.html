@@ -8,9 +8,26 @@
 </head>
 <body>
     
-    <h1>Properties</h1>
+    <div>
+        <h1>Properties</h1>
+        <ul>
+        {% for property in content %}
 
-    <p>{{ data }}</p>
+            <li class="">
+                <div class="">
+                    <a href="/properties/{{ property.property_id }}">
+                        <img src="{{ property.title_image_thumb }}"/>
+                        {{property.title}}
+                    </a>
+                </div>
+                <div class="">{{property.public_id}}</div>
+                <div class="">{{property.location}}</div>
+                <div class="">{{property.property_type}}</div>
+            </li>
+
+        {% endfor %}
+        </ul>
+    </div>
 
 </body>
 </html>
