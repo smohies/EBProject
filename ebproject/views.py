@@ -15,14 +15,17 @@ def home(request, value=1):
     data = req.json()
 
     pagination = data['pagination']
+    content = data['content']
+
+    # Add the total of pages available to pagination.
     pagination["pages"] = pagination["total"] // pagination["limit"]
     if pagination["total"] % pagination["limit"]:
         pagination["pages"] += 1
+
+    # Create a list of pages available.
     pages = [n+1 for n in range(pagination["pages"])]
 
-    content = data['content']
-
-    # add thumbnail to properties with a null thumbnail
+    # Add a thumbnail to properties with a null thumbnail.
     for count in range(len(content)):
         if not content[count]["title_image_thumb"]:
             content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
@@ -37,10 +40,9 @@ def properties(request, value):
     key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
     headers = {usr: key}
     req = requests.get(url, headers=headers)
-
     data = req.json()
 
-    # create a dictionary with the property images, if less than 3, repeat until 3, if none, add generic images
+    # Create a dictionary with the property image urls, if less than 3, repeat until 3, if none, add 3 generic images.
     images = {}
     if len(data["property_images"]) > 0:
         for count, image in enumerate(data["property_images"]):
