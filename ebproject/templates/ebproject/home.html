@@ -19,6 +19,7 @@
 
         <div>
             <h1>Properties</h1>
+            <p>Page {{pagination.page}} of {{ pagination.pages }}</p>
             <ul>
             {% for prop in content %}
     
@@ -37,6 +38,12 @@
             {% endfor %}
             </ul>
         </div>
+
+        {% for n in pages %}
+            <a href="{% url 'page' value=n %}">
+                <p> {{ n }} </p>
+            </a>
+        {% endfor %}
         
         <script src="" async defer></script>
     </body>
