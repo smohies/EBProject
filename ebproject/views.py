@@ -60,7 +60,7 @@ def properties(request, value):
 
     return render(request, 'ebproject/property.html', context)
 
-def lead(request):
+def leads(request):
     if request.method == 'POST':
         form = InputForm(request.POST)
         if form.is_valid():
