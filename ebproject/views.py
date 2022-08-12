@@ -60,7 +60,7 @@ def properties(request, value):
 
     return render(request, 'ebproject/property.html', context)
 
-def contact(request):
+def lead(request):
     if request.method == 'POST':
         form = InputForm(request.POST)
         if form.is_valid():
@@ -78,5 +78,9 @@ def contact(request):
             key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
             headers = {usr: key}
             req = requests.post(url, headers=headers, json=data)
-            return HttpResponse(req.text)
+            response = req.status_code
+            context = {'data': data, 'response':response}
+            if response == 200:
+                return render(request, 'ebproject/lead.html', context)
+            return HttpResponse("Error code: " + str(response))
         return HttpResponse("Form is not valid")     
