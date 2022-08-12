@@ -6,4 +6,4 @@ class InputForm(forms.Form):
     phone = forms.CharField(max_length = 50)
     email = forms.CharField(max_length = 250)
     message = forms.CharField(max_length = 500, widget=forms.Textarea)
-    public_id = forms.CharField(max_length = 250, label="Property Id", disabled=True)
+    public_id = forms.CharField(max_length = 250, label="Property Id" )
