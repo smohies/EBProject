@@ -19,7 +19,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1>Properties / {{ data.title }}</h1>
+        <h1>{{ data.title }}</h1>
+        <a href="{% url 'home' %}">Back to list</a>
 
         <div class="container">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">

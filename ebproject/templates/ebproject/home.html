@@ -20,9 +20,16 @@
         <div>
             <h1>Properties</h1>
             <p>Page {{pagination.page}} of {{ pagination.pages }}</p>
+            <table style="width:100%">
+                <tr>
+                    {% for n in pages %}   
+                            <td> <a href="{% url 'page' value=n %}">{{ n }}</a> </td>
+                    {% endfor %}
+                </tr>
+            </table>
             <ul>
+
             {% for prop in content %}
-    
                 <li class="">
                     <div class="">
                         <a href="{% url 'property' value=prop.public_id %}">
@@ -33,17 +40,18 @@
                     <div class="">{{prop.public_id}}</div>
                     <div class="">{{prop.location}}</div>
                     <div class="">{{prop.property_type}}</div>
-                </li>
-    
+                </li>    
             {% endfor %}
+
             </ul>
         </div>
-
-        {% for n in pages %}
-            <a href="{% url 'page' value=n %}">
-                <p> {{ n }} </p>
-            </a>
-        {% endfor %}
+        <table style="width:100%">
+            <tr>
+                {% for n in pages %}   
+                        <td> <a href="{% url 'page' value=n %}">{{ n }}</a> </td>
+                {% endfor %}
+            </tr>
+        </table>
         
         <script src="" async defer></script>
     </body>
