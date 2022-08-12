@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 import requests
 from .forms import InputForm
 
@@ -9,20 +10,20 @@ def home(request):
     usr = "X-Authorization"
     key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
     headers = {usr: key}
-    payload = {"page":1, "limit":15, "search[statuses][]":"published"}
+    payload = {"page": 1, "limit": 15, "search[statuses][]": "published"}
     req = requests.get(url, headers=headers, params=payload)
     data = req.json()
 
     pagination = data['pagination']
 
     content = data['content']
-    
+
     # add thumbnail to properties with a null thumbnail
     for count in range(len(content)):
         if not content[count]["title_image_thumb"]:
             content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
 
-    context = {'content' : content}
+    context = {'content': content}
 
     return render(request, 'ebproject/home.html', context)
 
@@ -48,6 +49,7 @@ def properties(request, value):
         for count in range(3):
             images[count] = "http://wallpaperswide.com/download/sky_hd-wallpaper-1920x1080.jpg"
 
-    context = {'data':data,'images':images, 'form':InputForm()}
+    context = {'data': data, 'images': images,
+               'form': InputForm(initial={'public_id': value})}
 
     return render(request, 'ebproject/property.html', context)
