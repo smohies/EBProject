@@ -10,6 +10,11 @@ class MockResponse:
     def json(self):
         return self.json_data
 
+class MockRequest:
+    def __init__(self, method, POST):
+        self.method = method
+        self.POST = POST
+
 class ViewsTestCase(TestCase):
     def mock_requests_get_properties(*args, **kwargs):
         return MockResponse(
@@ -22,6 +27,12 @@ class ViewsTestCase(TestCase):
     def mock_requests_get_401(*args, **kwargs):
         return MockResponse({"error":"error"}, 401)
 
+    def mock_request_post_200(*args, **kwargs):
+        return MockResponse({}, status_code=200)
+
+    def mock_request_post_422(*args, **kwargs):
+        return MockResponse({}, status_code=422)
+
     @mock.patch('requests.get', side_effect=mock_requests_get_properties)
     def test_home_get(self, mock_get):
         result = views.home("")
@@ -32,3 +43,31 @@ class ViewsTestCase(TestCase):
     def test_home_401(self, mock_get):
         with self.assertRaises(KeyError):
             views.home('')
+
+    @mock.patch('requests.post', side_effect=mock_request_post_200)
+    def test_leads_ok(self, mock_get):
+        mock_body = {
+            "name": "John",
+            "phone": "123",
+            "email": "mail@mail.com",
+            "public_id": "EB-B5338",
+            "message": "please halp!",
+            "source": "mydomain.com"
+        }
+        request = MockRequest(method='POST', POST=mock_body)
+        result = views.leads(request)
+        self.assertEquals(200, result.status_code)
+
+    @mock.patch('requests.post', side_effect=mock_request_post_422)
+    def test_leads_error(self, mock_get):
+        mock_body = {
+            "name": "John",
+            "phone": "123",
+            "email": "mail@mail.com",
+            "public_id": "EB-B5338",
+            "message": "please halp!",
+            "source": "mydomain.com"
+        }
+        request = MockRequest(method='POST', POST=mock_body)
+        result = views.leads(request)
+        self.assertEquals(422, result.status_code)

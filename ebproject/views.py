@@ -51,12 +51,12 @@ def leads(request):
             }
 
             url = urljoin(settings.EB_BASE_URL, settings.EB_CONTACT_ENDPOINT) 
-            req = requests.post(url, auth=TokenAuth(settings.API_KEY), json=data)
-            response = req.status_code
+            res = requests.post(url, auth=TokenAuth(settings.API_KEY), json=data)
+            response = res.status_code
             context = {'data': data, 'response':response}
             if response == 200:
                 return render(request, 'ebproject/lead.html', context)
 
-            return HttpResponse("Error code: " + str(response))
+            return HttpResponse("Error code: " + str(response), status = response)
 
-        return HttpResponse("Form is not valid")     
+        return HttpResponse("Form is not valid", status = 400)     
