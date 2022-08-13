@@ -25,7 +25,7 @@
             {% for prop in eb_properties %}
                 <li class="">
                     <div class="">
-                        <a href="{% url 'property' value=prop.public_id %}">
+                        <a href="{% url 'property' property_id=prop.public_id %}">
                             <img src="{{ prop.title_image_thumb }}"/>
                             {{prop.title}}
                         </a>

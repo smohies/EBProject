@@ -32,8 +32,8 @@ def home(request, value=1):
 
     return render(request, 'ebproject/home.html', context)
 
-def properties(request, value):
-    url = urljoin(settings.EB_BASE_URL, settings.EB_PROPERTIES_ENDPOINT + f"/{value}")
+def properties(request, property_id):
+    url = urljoin(settings.EB_BASE_URL, settings.EB_PROPERTIES_ENDPOINT + f"/{property_id}")
     res = requests.get(url, auth=TokenAuth(settings.API_KEY))
     data = res.json()
 
@@ -52,7 +52,7 @@ def properties(request, value):
             images[count] = "http://wallpaperswide.com/download/sky_hd-wallpaper-1920x1080.jpg"
 
     context = {'data': data, 'images': images,
-               'form': InputForm(initial={'public_id': value})}
+               'form': InputForm(initial={'public_id': property_id})}
 
     return render(request, 'ebproject/property.html', context)
 
