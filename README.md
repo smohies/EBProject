@@ -40,11 +40,11 @@ The contact form must include the following:
 
 ## Screenshots
 
-![Home](https://i.imgur.com/2e4U8UO.png)
+![Home](https://i.imgur.com/E1pCLlM.png)
 
-![Page 21](https://i.imgur.com/GAgti5x.png)
+![Page 15](https://i.imgur.com/vKNoARQ.png)
 
-![EB-B5458](https://i.imgur.com/lvNMCPv.png)
+![EB-B5439](https://i.imgur.com/CNccg6M.png)
 
 ## Installation
 
@@ -126,7 +126,7 @@ Being a public API key, no effort was done in order to conceal it. If this were 
 
 Every step of the way was a very exciting and interesting challenge to overcome. There were many of these challenges I was very happy to be able to complete!
 
-Definetly the hardest thing to solve where the unit tests. I have had some experience with them, but mostly locally contained simple stuff, this without a doubt was a very nice challenge.
+Definetly the hardest thing to solve were the unit tests. I have had some experience with them, but mostly locally contained simple stuff, this without a doubt was a very nice challenge.
 
 Oscar Z. from the EB team, before commencing this project, was kind enough to point out that this area was a area of oportunity for me (Clearly my unit-testing in the first mini-project was not very impressive), and shared a very nice RealPython.com post about "Mocking External APIs in Python", it was of extreme value for this project. I learned a lot with the post and by working on it on this project, and I am very happy with what I was able to accomplish. That said, I still require more reading and experimenting to fully wrap my head around these concepts. I definetly see the tests in this project as extraordinary first steps.
 
