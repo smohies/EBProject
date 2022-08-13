@@ -15,7 +15,7 @@ It consists of 2 main pages, the properties list, and the property page.
 
 ## Property Page
 
-When a user clicks on a property in the list, they will be lead into that property detailed information page using the properties/{property_id} endpoint.
+When a user clicks on a property in the list, they will be taken into that property detailed information page using the properties/{property_id} endpoint.
 
 The page displays the following information:
 
@@ -78,7 +78,7 @@ As simple as that! You are now ready to fire the rpoject up.
 
 If you just followed the installation steps, you should have your virtual environemnt active right now.
 
-If not, open a terminal in the folder where the project and the virtual environment resides, you can activate it like this:
+If not, open a terminal in the folder where the project and the virtual environment resides, you can activate it with:
 
 ```bash
 source venv\bin\activate
@@ -103,6 +103,12 @@ This project has been built using the "Divide and Conquer" method. By dividing t
 
 Because of the desire to complete all basic requirements within the narrow time constraints, the testing code was not created/implemented until the end of the development cycle. Having a more generous and relaxed time constraint, I would have chosen a "Test-driven Development" style.
 
+#### **Regarding the API Key:**
+
+This project treats the API key for what it is, a publicly available API key.
+
+Being a public API key, no effort was done in order to conceal it.
+
 ### Hardest Thing To Solve
 
 Every step of the way was a very exciting and interesting challenge to overcome. There were many of these challenges I was very happy to be able to complete!
@@ -115,7 +121,7 @@ Without a doubt a bittersweet moment. I was happy that the problem had been reso
 
 Originally it was my desire to use class-based views instead of function-based views with Django. Because of the time constraint, I decided to start the project with function-based views, and first complete the following:
 
-#### Priority:
+#### **Priority:**
 
 - Meet the project requirements with function-based views.
 - Refactor my code as to achieve clean and efficient code
@@ -124,7 +130,7 @@ Originally it was my desire to use class-based views instead of function-based v
 
 If able to complete this priority list, and still have time available:
 
-#### Nice to have:
+#### **Nice to have:**
 
 - Convert the function-based views into class-based views.
 - Give the HTML and CSS code some love, just to make things a bit prettier.
@@ -135,7 +141,7 @@ The bad news on the other hand... Not much time was left, so I decided to spend 
 
 ### Dirty Code Areas
 
-After constant refactoring, I don't particularly find any code area particularly dirty. That being said, I would of liked to have cleaner and more scalable code by using class-based views (CBV) instead of function-based views (FBV). Sadly I was not able to switch from FBV to CBV inside the given time frame.
+After constant refactoring, I don't find any code area particularly dirty. Of course, that does not mean there is room for improvement. That being said, I would of liked to have cleaner and more scalable code by using class-based views (CBV) instead of function-based views (FBV). Sadly I was not able to switch from FBV to CBV inside the given time frame.
 
 ## Author
 

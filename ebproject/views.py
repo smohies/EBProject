@@ -1,18 +1,16 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
+from urllib.parse import urljoin
 import requests
 from .forms import InputForm
-
-# Create your views here.
+from .token_auth import TokenAuth
 
 def home(request, value=1):
-    url = "https://api.stagingeb.com/v1/properties"
-    usr = "X-Authorization"
-    key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
-    headers = {usr: key}
-    payload = {"page": value, "limit": 15, "search[statuses][]": "published"}
-    req = requests.get(url, headers=headers, params=payload)
-    data = req.json()
+    url = urljoin(settings.EB_BASE_URL, settings.EB_PROPERTIES_ENDPOINT)
+    payload = {"page": value, "limit": settings.PROPERTIES_PAGE_SIZE_LIMIT, "search[statuses][]": "published"}
+    res = requests.get(url, auth=TokenAuth(settings.API_KEY), params=payload)
+    data = res.json()
 
     pagination = data['pagination']
     content = data['content']
@@ -30,17 +28,14 @@ def home(request, value=1):
         if not content[count]["title_image_thumb"]:
             content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
 
-    context = {'content': content, 'pagination': pagination, 'pages': pages}
+    context = {'eb_properties': content, 'pagination': pagination, 'pages': pages}
 
     return render(request, 'ebproject/home.html', context)
 
 def properties(request, value):
-    url = f"https://api.stagingeb.com/v1/properties/{value}"
-    usr = "X-Authorization"
-    key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
-    headers = {usr: key}
-    req = requests.get(url, headers=headers)
-    data = req.json()
+    url = urljoin(settings.EB_BASE_URL, settings.EB_PROPERTIES_ENDPOINT + f"/{value}")
+    res = requests.get(url, auth=TokenAuth(settings.API_KEY))
+    data = res.json()
 
     # Create a dictionary with the property image urls
     # if less than 3, repeat until 3, if none, add 3 generic images.
@@ -74,14 +69,13 @@ def leads(request):
                 "source": "mydomain.com"
             }
 
-            url = "https://api.stagingeb.com/v1/contact_requests"
-            usr = "X-Authorization"
-            key = "l7u502p8v46ba3ppgvj5y2aad50lb9"
-            headers = {usr: key}
-            req = requests.post(url, headers=headers, json=data)
+            url = urljoin(settings.EB_BASE_URL, settings.EB_CONTACT_ENDPOINT) 
+            req = requests.post(url, auth=TokenAuth(settings.API_KEY), json=data)
             response = req.status_code
             context = {'data': data, 'response':response}
             if response == 200:
                 return render(request, 'ebproject/lead.html', context)
+
             return HttpResponse("Error code: " + str(response))
+
         return HttpResponse("Form is not valid")     

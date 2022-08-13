@@ -122,3 +122,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# App Settings
+EB_BASE_URL = "https://api.stagingeb.com/v1/"
+EB_PROPERTIES_ENDPOINT = "properties"
+EB_CONTACT_ENDPOINT = "contact_requests"
+API_KEY = "l7u502p8v46ba3ppgvj5y2aad50lb9"
+EB_AUTH_HEADER_KEY = "X-Authorization"
+PROPERTIES_PAGE_SIZE_LIMIT = 15
