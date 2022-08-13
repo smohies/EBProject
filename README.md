@@ -107,7 +107,7 @@ Because of the desire to complete all basic requirements within the narrow time 
 
 This project treats the API key for what it is, a publicly available API key.
 
-Being a public API key, no effort was done in order to conceal it.
+Being a public API key, no effort was done in order to conceal it. If this were a private API key, it would of remain hidden, never hard-coded, never saved in a file as to make it impossible for it to be "accidentally" commited into the online repository. The private key would of been stored **only** as a environment variable.
 
 ### Hardest Thing To Solve
 
@@ -141,7 +141,7 @@ The bad news on the other hand... Not much time was left, so I decided to spend 
 
 ### Dirty Code Areas
 
-After constant refactoring, I don't find any code area particularly dirty. Of course, that does not mean there is room for improvement. That being said, I would of liked to have cleaner and more scalable code by using class-based views (CBV) instead of function-based views (FBV). Sadly I was not able to switch from FBV to CBV inside the given time frame.
+After constant refactoring, I don't find any code area particularly dirty. Of course, that does not mean there is no room for improvement. That being said, I would of liked to have cleaner and more scalable code by using class-based views (CBV) instead of function-based views (FBV). Sadly I was not able to switch from FBV to CBV inside the given time frame.
 
 ## Author
 
