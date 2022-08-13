@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
+import math
 from urllib.parse import urljoin
 import requests
 from .forms import InputForm
@@ -10,25 +11,26 @@ def home(request, value=1):
     url = urljoin(settings.EB_BASE_URL, settings.EB_PROPERTIES_ENDPOINT)
     payload = {"page": value, "limit": settings.PROPERTIES_PAGE_SIZE_LIMIT, "search[statuses][]": "published"}
     res = requests.get(url, auth=TokenAuth(settings.API_KEY), params=payload)
+
     data = res.json()
+    response_pagination = data['pagination']
+    response_content = data['content']
+    total_pages = math.ceil(response_pagination['total'] / response_pagination['limit'])
 
-    pagination = data['pagination']
-    content = data['content']
-
-    # Add the total of pages available to pagination.
-    pagination["pages"] = pagination["total"] // pagination["limit"]
-    if pagination["total"] % pagination["limit"]:
-        pagination["pages"] += 1
-
-    # Create a 1-based list of pages available.
-    pages = [n+1 for n in range(pagination["pages"])]
+    pagination = {
+        "page": response_pagination['page'],
+        "total_pages": total_pages,
+        "page_list": range(1, total_pages+1)
+    }
 
     # Add a generic thumbnail to properties with a null thumbnail.
+    '''
     for count in range(len(content)):
         if not content[count]["title_image_thumb"]:
-            content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
+             content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
+    '''
 
-    context = {'eb_properties': content, 'pagination': pagination, 'pages': pages}
+    context = {'eb_properties': response_content, 'pagination': pagination}
 
     return render(request, 'ebproject/home.html', context)
 

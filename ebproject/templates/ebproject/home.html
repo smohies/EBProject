@@ -12,10 +12,10 @@
 
         <div>
             <h1>Properties</h1>
-            <p>Page {{pagination.page}} of {{ pagination.pages }}</p>
+            <p>Page {{pagination.page}} of {{ pagination.total_pages }}</p>
             <table style="width:100%">
                 <tr>
-                    {% for n in pages %}   
+                    {% for n in pagination.page_list %}   
                             <td> <a href="{% url 'page' value=n %}">{{ n }}</a> </td>
                     {% endfor %}
                 </tr>
@@ -40,12 +40,12 @@
         </div>
         <table style="width:100%">
             <tr>
-                {% for n in pages %}   
+                {% for n in pagination.page_list %}   
                         <td> <a href="{% url 'page' value=n %}">{{ n }}</a> </td>
                 {% endfor %}
             </tr>
         </table>
-        <p>Page {{pagination.page}} of {{ pagination.pages }}</p>
+        <p>Page {{pagination.page}} of {{ pagination.total_pages }}</p>
         
         <script src="" async defer></script>
     </body>
