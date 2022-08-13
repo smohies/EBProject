@@ -1,4 +1,4 @@
-# EasyBroker Software Developer Intern Website Project
+# EB API Consuming Web-Project
 
 This website connects to the public staging area API of EasyBroker:
 
@@ -160,6 +160,6 @@ After constant refactoring, I don't find any code area particularly dirty. Of co
 
 ## Author
 
-Samuel Martinez Odriozola
+Samuel O.
 
 smohuff@gmail.com
