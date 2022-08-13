@@ -40,7 +40,11 @@ The contact form must include the following:
 
 ## Screenshots
 
+![Home](https://i.imgur.com/RPzB6ar.png)
 
+![Page 21](https://i.imgur.com/32iKSDD.png)
+
+![EB-B5458](https://i.imgur.com/lvNMCPv.png)
 
 ## Installation
 
@@ -64,7 +68,7 @@ It is highly recommended you create a virtual environment and activate it before
 
 ```bash
 python3 -m venv venv
-source venv\bin\activate
+source venv/bin/activate
 ```
 Now it is time to install all the project dependencies:
 
@@ -72,17 +76,20 @@ Now it is time to install all the project dependencies:
 pip install -r requirements.txt
 ```
 
-As simple as that! You are now ready to fire the rpoject up.
+As simple as that! You are now ready to fire up the project.
 
 ## Usage
 
-If you just followed the installation steps, you should have your virtual environemnt active right now.
+If you just followed the installation steps, you should have your virtual environment active right now.
 
 If not, open a terminal in the folder where the project and the virtual environment resides, you can activate it with:
 
 ```bash
-source venv\bin\activate
+source venv/bin/activate
 ```
+
+![Activating the virtual environment](https://i.imgur.com/nvOEeiy.png)
+
 Now we should run the server hosting the website:
 
 ```bash
@@ -139,11 +146,13 @@ If able to complete this priority list, and still have time available:
 #### **Nice to have:**
 
 - Convert the function-based views into class-based views.
-- Give the HTML and CSS code some love, just to make things a bit prettier.
+- Give the HTML and CSS code some love, just to make things prettier.
 
-The good news are, the priority list was completed inside the time frame!
+The good news are, the priority list was completed inside the time frame! Yay!
 
-The bad news on the other hand... Not much time was left, so I decided to spend the little time left refactoring the code some more, and doing some minor visual upgrades to the website.
+The bad news on the other hand... Not much time was left after finishing the priority list, so I decided to spend the little time left refactoring the code some more, moving code concerned with HTML from views.py to the corresponding .html files, improving the documentation and doing some minor visual upgrades to the website.
+
+Am I happy with the progress done given the time constraints? Yes, yes I am. Would of loved 24 more hours to really smooth out all of the rough edges and really make it pop! But for a 72 hour project, I am very happy with the results.
 
 ### Dirty Code Areas
 
