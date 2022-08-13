@@ -19,24 +19,18 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                {% for i in slider %}
+                  <li data-target="#myCarousel" data-slide-to={{i}} {% if forloop.first %} class="active" {% endif %}></li>
+                {% endfor %}
               </ol>
           
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
-                <div class="item active">
-                  <img src={{ images.0 }} style="max-height:600px; max-width:1200px; width:auto; height:auto;">
+                {% for img in data.property_images %}
+                <div class="item {% if forloop.first %} active {% endif %}">
+                  <img src={{ img.url }} style="max-height:600px; max-width:1200px; width:auto; height:auto;">
                 </div>
-          
-                <div class="item">
-                  <img src={{ images.1 }} style="max-height:600px; max-width:1200px; width:auto; height:auto;">
-                </div>
-              
-                <div class="item">
-                  <img src={{ images.2 }} style="max-height:600px; max-width:1200px; width:auto; height:auto;">
-                </div>
+                {% endfor %} 
               </div>
           
               <!-- Left and right controls -->
