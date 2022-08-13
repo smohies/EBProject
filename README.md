@@ -110,6 +110,10 @@ If you wish to run the unit tests, you can do so like this:
 python manage.py test
 ```
 
+The test file can be found here:
+
+> ebproject / tests.py
+
 ## Notes
 
 This project has been built using the "Divide and Conquer" method. By dividing this task (project) into small, bite size tasks, and conquering each one by one, it was manageable to complete all the requirements of the project.
@@ -152,7 +156,7 @@ The good news are, the priority list was completed inside the time frame! Yay!
 
 The bad news on the other hand... Not much time was left after finishing the priority list, so I decided to spend the little time left refactoring the code some more, moving code concerned with HTML from views.py to the corresponding .html files, improving the documentation and doing some minor visual upgrades to the website.
 
-Am I happy with the progress done given the time constraints? Yes, yes I am. Would of loved 24 more hours to really smooth out all of the rough edges and really make it pop! But for a 72 hour project, I am very happy with the results.
+Am I happy with the progress done given the time constraints? Yes, yes I am. Would of loved 24 more hours to really smooth out all of the rough edges and have much better error handling, really making it pop! But for a 72 hour project, I am very happy with the results.
 
 ### Dirty Code Areas
 
