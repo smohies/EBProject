@@ -26,7 +26,7 @@
                 <li class="">
                     <div class="">
                         <a href="{% url 'property' property_id=prop.public_id %}">
-                            <img src="{{ prop.title_image_thumb }}"/>
+                            <img src="{{ prop.title_image_thumb|default:"https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg" }}"/>
                             {{prop.title}}
                         </a>
                     </div>

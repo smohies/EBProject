@@ -23,13 +23,6 @@ def home(request, value=1):
         "page_list": range(1, total_pages+1)
     }
 
-    # Add a generic thumbnail to properties with a null thumbnail.
-    '''
-    for count in range(len(content)):
-        if not content[count]["title_image_thumb"]:
-             content[count]["title_image_thumb"] = "https://www.komar.de/en/media/catalog/product/cache/5/image/100x100/17f82f742ffe127f42dca9de82fb58b1/6/0/6041a-vd2_blue_sky_web.jpg"
-    '''
-
     context = {'eb_properties': response_content, 'pagination': pagination}
 
     return render(request, 'ebproject/home.html', context)
