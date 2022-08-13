@@ -33,6 +33,9 @@ class ViewsTestCase(TestCase):
     def mock_request_post_422(*args, **kwargs):
         return MockResponse({}, status_code=422)
 
+    def mock_request_post_400(*args, **kwargs):
+        return MockResponse({}, status_code=400)
+
     @mock.patch('requests.get', side_effect=mock_requests_get_properties)
     def test_home_get(self, mock_get):
         result = views.home("")
@@ -71,3 +74,9 @@ class ViewsTestCase(TestCase):
         request = MockRequest(method='POST', POST=mock_body)
         result = views.leads(request)
         self.assertEquals(422, result.status_code)
+
+    def test_leads_invalid(self):
+        mock_body = {}
+        request = MockRequest(method='POST', POST=mock_body)
+        result = views.leads(request)
+        self.assertEquals(400, result.status_code)

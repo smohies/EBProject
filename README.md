@@ -97,6 +97,12 @@ Starting development server at http://127.0.0.1:8000/
 
 Type that url in your prefered web browser, and voila! You are now ready to navigate the website.
 
+If you wish to run the unit tests, you can do so like this:
+
+```bash
+python manage.py test
+```
+
 ## Notes
 
 This project has been built using the "Divide and Conquer" method. By dividing this task (project) into small, bite size tasks, and conquering each one by one, it was manageable to complete all the requirements of the project.
@@ -113,9 +119,9 @@ Being a public API key, no effort was done in order to conceal it. If this were 
 
 Every step of the way was a very exciting and interesting challenge to overcome. There were many of these challenges I was very happy to be able to complete!
 
-But I think the issue that proved to be the hardest to overcome was actually one of the simplest and silliest. When trying to complete a succesfull POST request with the contact form, EBs API would just not accept it and return a "422" code. And the error message attached to it was not very helpful. Needless to say, I ended up banging my head against the wall with this issue for hours, just to end up changing the parameters name from "data" to "json" in the off-chance that this could be the issue, me trying to pass the correct argument through the wrong parameter. And there we go, code "200", success!
+Definetly the hardest thing to solve where the unit tests. I have had some experience with them, but mostly locally contained simple stuff, this without a doubt was a very nice challenge.
 
-Without a doubt a bittersweet moment. I was happy that the problem had been resolved! I was pretty sad I wasted hours of the project in such a silly error. But hey! You live, you learn.
+Oscar Z. from the EB team, before commencing this project, was kind enough to point out that this area was a area of oportunity for me (Clearly my unit-testing in the first mini-project was not very impressive), and shared a very nice RealPython.com post about "Mocking External APIs in Python", it was of extreme value for this project. I learned a lot with the post and by working on it on this project, and I am very happy with what I was able to accomplish. That said, I still require more reading and experimenting to fully wrap my head around these concepts. I definetly see the tests in this project as extraordinary first steps.
 
 ### If Able To Finish
 
@@ -126,7 +132,7 @@ Originally it was my desire to use class-based views instead of function-based v
 - Meet the project requirements with function-based views.
 - Refactor my code as to achieve clean and efficient code
 - Create some decent test coverage
-- Create some decent documentation.
+- Create the documentation.
 
 If able to complete this priority list, and still have time available:
 
