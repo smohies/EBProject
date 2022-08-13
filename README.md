@@ -22,7 +22,7 @@ The page displays the following information:
 - Public ID.
 - Title.
 - Description.
-- A slideshow with the first 3 photos.
+- A slideshow with all available photos.
 - Property type.
 - Location
 
@@ -40,9 +40,9 @@ The contact form must include the following:
 
 ## Screenshots
 
-![Home](https://i.imgur.com/RPzB6ar.png)
+![Home](https://i.imgur.com/2e4U8UO.png)
 
-![Page 21](https://i.imgur.com/32iKSDD.png)
+![Page 21](https://i.imgur.com/GAgti5x.png)
 
 ![EB-B5458](https://i.imgur.com/lvNMCPv.png)
 
